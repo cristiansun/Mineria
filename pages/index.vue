@@ -1,6 +1,6 @@
 <template>
   <div >
-    <h1 class="font-bold" padding:1 >Detección de movimientos</h1>
+    <h1 class="font-bold text-3xl" padding:1 >Detección de movimientos</h1>
       <a-card hoverable style="width: 240px">
       <img
         slot="cover"

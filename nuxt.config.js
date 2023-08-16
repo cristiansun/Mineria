@@ -1,6 +1,6 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -21,6 +21,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/styles/tailwind.css',
     'ant-design-vue/dist/antd.css'
   ],
 
@@ -43,5 +44,16 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    postcss: {
+      plugins: {
+        tailwindcss: {},
+        autoprefixer: {},
+      },
+    },
+    loaders: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
   }
 }
