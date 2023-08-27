@@ -30,6 +30,8 @@
         </div>
 
         <div class="p-2">
+          <Camara v-if="camaraVisible" @isStop="camaraVisible=false" />
+          <a-card v-else>
           <a-card>
             <img
               slot="cover"
@@ -68,17 +70,26 @@
             </a-card-meta>
           </a-card>
         </div>
+      </div>
+      <a-button @click="camaraVisible=true">Encender camara</a-button> 
+
       </div>  
+
   </div>
 </template>
 
 <script>
 import moment from 'moment'
+import Camara from '../components/camara.vue'
 export default {
+  components: {
+    Camara,
+  },
   layout: 'home',
   name: 'IndexPage',
   data() {
     return {
+      camaraVisible: false,
     }
   },
   head() {
@@ -86,5 +97,14 @@ export default {
       title: 'Tareas'
     }
   },
+  methods: {
+    mostrar(message) {
+      console.log(message)
+    },
+    detener() {
+      console.log("se envio a detener")
+      this.camaraVisible = false
+    },
+  }
 }
 </script>
