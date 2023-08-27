@@ -1,18 +1,10 @@
 <template>
-    <div class="login-page">
-      <h2>Iniciar sesión</h2>
-      <form @submit.prevent="login">
-        <div class="form-group">
-          <label for="username">Nombre de usuario</label>
-          <input type="text" id="username" v-model="username" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" v-model="password" required>
-        </div>
-        <button type="submit">Iniciar sesión</button>
-      </form>
-      <p v-if="error" class="error-message">{{ error }}</p>
+    <div class="login-container">
+      <h1>Login</h1>
+      <input v-model="username" type="text" placeholder="Ingrese el usuario">
+      <input v-model="password" type="password" placeholder="Ingrese la contraseña">
+      <button @click="login">Login</button>
+      <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     </div>
   </template>
   
@@ -20,36 +12,32 @@
   export default {
     data() {
       return {
-        username: '',
-        password: '',
-        error: '',
+        username: "",
+        password: "",
+        errorMessage: ""
       };
     },
     methods: {
       login() {
-        if (this.username === 'usuario' && this.password === 'contraseña') {
-          console.log('Inicio de sesión exitoso');
+        if (this.username === "admin" && this.password === "admin") {
+          this.$router.push("/index");
         } else {
-          this.error = 'Credenciales incorrectas';
+          this.errorMessage = "Credenciales incorrectas. Por favor, intenta nuevamente.";
         }
-      },
-    },
+      }
+    }
   };
   </script>
   
-  <style>
-  .login-page {
-    max-width: 300px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  <style scoped>
+  .login-container {
+    text-align: center;
+    margin-top: 100px;
   }
-  .form-group {
-    margin-bottom: 10px;
-  }
+  
   .error-message {
     color: red;
+    margin-top: 10px;
   }
   </style>
   

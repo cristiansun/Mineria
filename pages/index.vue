@@ -32,6 +32,7 @@
         <div class="p-2">
           <Camara v-if="camaraVisible" @isStop="camaraVisible=false" />
           <a-card v-else>
+          <a-card>
             <img
               slot="cover"
               alt="example"
@@ -71,6 +72,9 @@
         </div>
       </div>
       <a-button @click="camaraVisible=true">Encender camara</a-button> 
+
+      </div>  
+
   </div>
 </template>
 

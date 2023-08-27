@@ -1,5 +1,5 @@
 <template>
-  <a-layout id="components-layout-demo-side" style="min-height: 100vh">
+  <a-layout id="components-layout-demo-side" style="min-height: 100vh" >
     <a-layout-sider v-model="collapsed" :trigger="null" collapsible collapsed-width="0" style="width: 500px">
       <a-menu theme="dark" :default-selected-keys="['1']" mode="inline">
         <a-menu-item >
@@ -19,6 +19,7 @@
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="() => (collapsed = !collapsed)"
         />
+        <!-- <a-avatar class="aling-center" :size="64" icon="user" /> -->
         <div :class="['global-header-right']">
         </div>
       </a-layout-header>
